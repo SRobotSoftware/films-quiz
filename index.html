@@ -1,0 +1,45 @@
+<html ng-app="MYMODULE">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Site Title</title>
+	<!--Style Components-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="FilmController as fc">
+
+<div class="container-fluid">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Movies!</div>
+		<div class="panel-body">
+			<div>
+				<form ng-submit="addFilm(newFilm)" class="form-group form-inline">
+					<label>Film Name:</label>
+					<input type="text" class="form-control" ng-model="newFilm.name">
+					<label>Film Year:</label>
+					<input type="text" class="form-control" ng-model="newFilm.year">
+					<button class="btn btn-success" type="submit">Add Film</button>
+				</form>
+			</div>
+			<ul>
+				<li ng-repeat="film in films track by $index">
+					{{film.name}} - {{film.year}} - <span class="text-danger" ng-click="removeFilm($index)">X</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+	<!--JS Components-->
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<!--Custom Application-->
+	<script src="app/app.js"></script>
+	<script src="app/films.js"></script>
+</body>
+
+</html>
